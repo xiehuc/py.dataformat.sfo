@@ -27,7 +27,7 @@ class Header:
         # uint32_t key_table_start;     Start offset of key_table
         # uint32_t data_table_start;    Start offset of data_table
         # uint32_t tables_entries;      Number of entries in all tables
-        
+
         self._magic = None
         self._version = None
         self._key_table_start = None

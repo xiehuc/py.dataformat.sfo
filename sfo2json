@@ -1,0 +1,28 @@
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8
+#
+# Copyright © 2018 xiehuc <xiehucheng@baidu.com>
+#
+# Distributed under terms of the BAIDU license.
+
+"""
+
+"""
+
+import sfo
+import argparse
+import json
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('file', nargs='+')
+
+    args = parser.parse_args()
+    for file in args.file:
+        obj =sfo.SfoFile.from_reader(open(file, mode='rb'))
+        lst = {item._key:item._value for item in obj.values()}
+        print(json.dumps(lst, ensure_ascii=False))
+
+if __name__ == '__main__':
+    main()
